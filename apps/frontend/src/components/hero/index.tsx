@@ -2,22 +2,22 @@
 
 import { useRotatingValue } from "@/hooks/use-rotating-value";
 import { localizeHref } from "@/lib/localization";
-import { cva, cx } from "@turbostrapi/cva";
+import { cn } from "@turbostrapi/cva";
 import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 import styles from "./hero.module.css";
 
-const gradientVariants = cva({
-  base: "absolute mix-blend-normal will-change-filter",
-  variants: {
-    size: {
-      logo: "h-[120px] w-[120px] opacity-90 blur-[32px]",
-      background:
-        "-top-[500px] h-[1000px] w-[1000px] opacity-[.15] blur-[75px]",
-    },
-  },
-});
+// const gradientVariants = cva({
+//   base: "will-change-filter absolute mix-blend-normal",
+//   variants: {
+//     size: {
+//       logo: "h-[120px] w-[120px] opacity-90 blur-[32px]",
+//       background:
+//         "-top-[500px] h-[1000px] w-[1000px] opacity-[.15] blur-[75px]",
+//     },
+//   },
+// });
 
 export interface HeroProps extends React.HTMLAttributes<HTMLDivElement> {
   locale: string;
@@ -30,7 +30,7 @@ const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
 
     return (
       <div
-        className={cx(
+        className={cn(
           "relative -z-10 flex flex-col items-center justify-between gap-8 pb-16 pt-12 md:pb-24 md:pt-16 lg:pb-32 lg:pt-20",
           className,
         )}
@@ -49,10 +49,7 @@ const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
           </div>
           <div className="absolute z-50 flex h-64 w-64 items-center justify-center">
             <span
-              className={cx(
-                gradientVariants({
-                  size: "logo",
-                }),
+              className={cn(
                 styles.heroGlow,
                 styles[`heroGlow--${rotatingVariant}`],
               )}
@@ -106,10 +103,10 @@ const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
           />
         </div>
         <span
-          className={cx(
-            gradientVariants({
-              size: "background",
-            }),
+          className={cn(
+            // gradientVariants({
+            //   size: "background",
+            // }),
             styles.heroGlow,
             styles[`heroGlow--${rotatingVariant}`],
           )}

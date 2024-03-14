@@ -1,6 +1,6 @@
 import { localizeHref } from "@/lib/localization";
 import type { Attribute } from "@turbostrapi/backend";
-import { cx } from "@turbostrapi/cva";
+import { cn } from "@turbostrapi/cva";
 import { Card } from "@turbostrapi/ui";
 import * as React from "react";
 
@@ -17,7 +17,7 @@ const LinkCardsSection = React.forwardRef<
   LinkCardsSectionProps
 >(({ className, section, locale, ...props }, ref) => (
   <div
-    className={cx(
+    className={cn(
       "z-20 grid text-center md:grid-cols-2 md:text-left lg:w-full lg:max-w-5xl lg:grid-cols-4",
       className,
     )}

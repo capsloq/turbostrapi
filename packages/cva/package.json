@@ -4,15 +4,16 @@
   "private": true,
   "description": "Utility for easy Tailwind CSS variants.",
   "license": "MIT",
-  "main": "./cva.config.ts",
-  "types": "./cva.config.ts",
+  "main": "./utils.ts",
+  "types": "./utils.ts",
   "scripts": {
     "clean": "git clean -xdf .turbo node_modules",
     "lint": "eslint ."
   },
   "dependencies": {
-    "cva": "^1.0.0-beta.1",
-    "tailwind-merge": "^2.1.0"
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
     "@turbostrapi/eslint-config": "*",

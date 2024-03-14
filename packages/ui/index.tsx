@@ -8,3 +8,7 @@ export {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "./src/dropdown-menu";
+
+// utils exports
+export { cn } from "./src/lib/utils";
+

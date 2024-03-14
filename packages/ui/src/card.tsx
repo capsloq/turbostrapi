@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { cx } from "@turbostrapi/cva";
+import { cn } from "@turbostrapi/cva";
 
 export interface CardProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -11,7 +11,7 @@ export interface CardProps
 const Card = React.forwardRef<HTMLAnchorElement, CardProps>(
   ({ className, children, title, href, target, ...props }, ref) => (
     <a
-      className={cx(
+      className={cn(
         "group rounded-xl border border-transparent px-5 py-4 ring-foreground ring-offset-background transition-colors hover:border-gray-300 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 hover:dark:border-neutral-300/20 hover:dark:bg-neutral-500/10",
         className,
       )}
