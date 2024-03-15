@@ -25,7 +25,6 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
-    "@turbostrapi/prettier-config": "*",
     "eslint": "^8.55.0",
     "prettier": "^3.1.1",
     "prettier-plugin-organize-imports": "^3.2.4",

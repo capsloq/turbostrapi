@@ -14,13 +14,9 @@
     "format": "turbo format --continue -- --cache --cache-location='node_modules/.cache/.prettiercache'",
     "format:fix": "yarn format -- --write",
     "preinstall": "npx only-allow yarn",
-    "lint": "turbo run lint",
-    "ui:add": "yarn workspace @turbostrapi/ui ui:add"
+    "lint": "turbo run lint"
   },
-  "prettier": "@turbostrapi/prettier-config",
   "devDependencies": {
-    "@turbostrapi/prettier-config": "*",
-    "@turbostrapi/tsconfig": "*",
     "eslint": "^8.55.0",
     "prettier": "^3.1.1",
     "turbo": "^1.11.1"
