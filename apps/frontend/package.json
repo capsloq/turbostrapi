@@ -14,8 +14,6 @@
   },
   "dependencies": {
     "@strapi/blocks-react-renderer": "^1.0.0-beta.0",
-    "@turbostrapi/cva": "*",
-    "@turbostrapi/ui": "*",
     "next": "^14.0.4",
     "next-themes": "^0.2.1",
     "qs": "^6.11.2",

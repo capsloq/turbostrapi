@@ -1,5 +1,9 @@
 {
   "extends": "@turbostrapi/tsconfig/base.json",
-  "include": ["."],
-  "exclude": ["node_modules"]
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

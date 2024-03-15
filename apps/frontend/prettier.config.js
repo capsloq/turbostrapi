@@ -11,12 +11,12 @@ module.exports = {
     trailingComma: 'all',
     pluginSearchDirs: false,
     importOrder: ['^@', '^[a-zA-Z0-9-]+', '^[./]'],
-    // overrides: [
-    //     {
-    //         files: ["tsconfig.json"],
-    //         options: {
-    //             trailingComma: "none",
-    //         },
-    //     },
-    // ],
+    overrides: [
+        {
+            files: ["tsconfig.json"],
+            options: {
+                trailingComma: "none",
+            },
+        },
+    ],
 };

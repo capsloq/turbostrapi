@@ -35,9 +35,7 @@ export default function RootLayout({
       >
         <Providers>
           <main className="flex min-h-screen flex-col items-center justify-between px-4 pb-28 pt-24 md:px-16">
-            <h1 className="text-5xl font-bold text-blue-500 text-primary">
-              TurboStrapi
-            </h1>
+            <h1 className="text-5xl font-bold text-primary">TurboStrapi</h1>
             {children}
           </main>
           <LocaleSwitch className="fixed bottom-6 left-4 z-40 md:absolute md:bottom-2 md:left-2" />
