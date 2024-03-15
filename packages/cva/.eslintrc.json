@@ -1,4 +1,0 @@
-{
-  "root": true,
-  "extends": ["@turbostrapi/eslint-config/base"]
-}
