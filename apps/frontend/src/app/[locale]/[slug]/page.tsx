@@ -1,43 +1,44 @@
-import Image from "next/image";
+import Image from 'next/image'
 
-import { Hero } from "@/components/hero";
-import { sectionRenderer } from "@/components/section-renderer";
-import { fetchOneBySlug } from "@/lib/api";
-import type { APIUrlParams } from "@/lib/api/types";
-import { Callout } from "@turbostrapi/ui";
-import { notFound } from "next/navigation";
+import { Hero } from '@/components/hero'
+import { sectionRenderer } from '@/components/section-renderer'
+import { fetchOneBySlug } from '@/lib/api'
+import type { APIUrlParams } from '@/lib/api/types'
+
+import { Callout } from '@/components/ui/callout'
+import { notFound } from 'next/navigation'
 
 interface PageProps {
   params: {
-    slug: string;
-    locale: string;
-  };
+    slug: string
+    locale: string
+  }
 }
 
 async function getPageBySlug(slug: string, locale: string) {
-  const pageParams: APIUrlParams<"api::page.page"> = {
-    sort: { createdAt: "desc" },
+  const pageParams: APIUrlParams<'api::page.page'> = {
+    sort: { createdAt: 'desc' },
     locale,
     populate: {
       sections: {
-        populate: "*",
+        populate: '*',
       },
       seo: {
-        populate: "*",
+        populate: '*',
       },
     },
-  };
+  }
 
-  return await fetchOneBySlug("api::page.page", slug, pageParams);
+  return await fetchOneBySlug('api::page.page', slug, pageParams)
 }
 
 export default async function Page({
   params,
 }: PageProps): Promise<JSX.Element> {
-  const response = await getPageBySlug(params.slug, params.locale);
-  const { locale } = params;
+  const response = await getPageBySlug(params.slug, params.locale)
+  const { locale } = params
   if (response.data === null) {
-    notFound();
+    notFound()
   }
 
   return (
@@ -56,7 +57,7 @@ export default async function Page({
             target="_blank"
             rel="noopener noreferrer"
           >
-            Inspired by{" "}
+            Inspired by{' '}
             <Image
               src="/assets/vercel.svg"
               alt="Vercel Logo"
@@ -77,5 +78,5 @@ export default async function Page({
         sectionRenderer(section, index, locale),
       )}
     </>
-  );
+  )
 }

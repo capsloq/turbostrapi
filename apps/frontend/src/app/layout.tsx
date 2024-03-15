@@ -6,9 +6,13 @@ import { Inter } from 'next/font/google'
 import { LocaleSwitch } from '@/components/locale-switch'
 import { ThemeSwitch } from '@/components/theme-switch'
 import { fetchLocales } from '@/lib/api'
+import { cn } from '@/lib/utils'
 import { Providers } from './providers'
 
-const inter = Inter({ subsets: ['latin'] })
+const fontSans = Inter({
+  subsets: ['latin'],
+  variable: '--font-sans',
+})
 
 export const metadata: Metadata = {
   title: 'TurboStrapi App',
@@ -23,18 +27,22 @@ export async function generateStaticParams() {
   }))
 }
 
+type RootLayoutProps = {
+  children: React.ReactNode
+  params: { locale: string }
+}
+
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+  params: { locale },
+}: RootLayoutProps) {
   return (
-    <html className="overflow-x-hidden" lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body
-        className={`relative min-h-screen overflow-x-hidden bg-background font-sans antialiased transition-[background] ${inter.className} `}
+        className={cn('bg-background font-sans antialiased', fontSans.variable)}
       >
         <Providers>
-          <main className="flex min-h-screen flex-col items-center justify-between px-4 pb-28 pt-24 md:px-16">
+          <main>
             <h1 className="text-5xl font-bold text-primary">TurboStrapi</h1>
             {children}
           </main>

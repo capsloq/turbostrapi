@@ -1,23 +1,23 @@
-"use client";
-import { Button } from "@turbostrapi/ui";
-import { useTheme } from "next-themes";
-import * as React from "react";
-import { useEffect, useState } from "react";
+'use client'
+import { Button } from '@/components/ui/button'
+import { useTheme } from 'next-themes'
+import * as React from 'react'
+import { useEffect, useState } from 'react'
 
-export type ThemeSwitchProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+export type ThemeSwitchProps = React.ButtonHTMLAttributes<HTMLButtonElement>
 
 const ThemeSwitch = React.forwardRef<HTMLButtonElement, ThemeSwitchProps>(
   ({ ...props }, ref) => {
-    const [mounted, setMounted] = useState(false);
-    const { theme, setTheme } = useTheme();
-    const oppositeTheme = theme === "dark" ? "light" : "dark";
+    const [mounted, setMounted] = useState(false)
+    const { theme, setTheme } = useTheme()
+    const oppositeTheme = theme === 'dark' ? 'light' : 'dark'
 
     useEffect(() => {
-      setMounted(true);
-    }, []);
+      setMounted(true)
+    }, [])
 
     if (!mounted) {
-      return null;
+      return null
     }
 
     return (
@@ -29,7 +29,7 @@ const ThemeSwitch = React.forwardRef<HTMLButtonElement, ThemeSwitchProps>(
         ref={ref}
         {...props}
       >
-        {theme === "dark" ? (
+        {theme === 'dark' ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
@@ -54,10 +54,10 @@ const ThemeSwitch = React.forwardRef<HTMLButtonElement, ThemeSwitchProps>(
           </svg>
         )}
       </Button>
-    );
+    )
   },
-);
+)
 
-ThemeSwitch.displayName = "ThemeSwitch";
+ThemeSwitch.displayName = 'ThemeSwitch'
 
-export { ThemeSwitch };
+export { ThemeSwitch }

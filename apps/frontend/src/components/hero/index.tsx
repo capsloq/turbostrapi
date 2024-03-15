@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
-import { useRotatingValue } from "@/hooks/use-rotating-value";
-import { localizeHref } from "@/lib/localization";
-import { cn } from "@turbostrapi/cva";
-import Image from "next/image";
-import Link from "next/link";
-import * as React from "react";
-import styles from "./hero.module.css";
+import { useRotatingValue } from '@/hooks/use-rotating-value'
+import { localizeHref } from '@/lib/localization'
+import { cn } from '@/lib/utils'
+import Image from 'next/image'
+import Link from 'next/link'
+import * as React from 'react'
+import styles from './hero.module.css'
 
 // const gradientVariants = cva({
 //   base: "will-change-filter absolute mix-blend-normal",
@@ -20,18 +20,18 @@ import styles from "./hero.module.css";
 // });
 
 export interface HeroProps extends React.HTMLAttributes<HTMLDivElement> {
-  locale: string;
+  locale: string
 }
 
 const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
   ({ className, locale, ...props }, ref) => {
-    const variants = ["strapi", "turborepo"];
-    const rotatingVariant = useRotatingValue(variants, 4500);
+    const variants = ['strapi', 'turborepo']
+    const rotatingVariant = useRotatingValue(variants, 4500)
 
     return (
       <div
         className={cn(
-          "relative -z-10 flex flex-col items-center justify-between gap-8 pb-16 pt-12 md:pb-24 md:pt-16 lg:pb-32 lg:pt-20",
+          'relative -z-10 flex flex-col items-center justify-between gap-8 pb-16 pt-12 md:pb-24 md:pt-16 lg:pb-32 lg:pt-20',
           className,
         )}
         ref={ref}
@@ -57,14 +57,14 @@ const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
           </div>
 
           <Link
-            href={localizeHref("/", locale)}
+            href={localizeHref('/', locale)}
             className="relative z-50 h-[120px] w-[120px]"
           >
             <div
               className={`absolute inset-0 flex justify-center transition-opacity duration-1000 ${
-                rotatingVariant === "turborepo"
-                  ? "visible opacity-100"
-                  : "invisible opacity-0"
+                rotatingVariant === 'turborepo'
+                  ? 'visible opacity-100'
+                  : 'invisible opacity-0'
               }`}
             >
               <Image
@@ -77,9 +77,9 @@ const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
             </div>
             <div
               className={`absolute inset-0 flex justify-center transition-opacity duration-1000 ${
-                rotatingVariant === "strapi"
-                  ? "visible opacity-100"
-                  : "invisible opacity-0"
+                rotatingVariant === 'strapi'
+                  ? 'visible opacity-100'
+                  : 'invisible opacity-0'
               }`}
             >
               <Image
@@ -112,10 +112,10 @@ const Hero = React.forwardRef<HTMLDivElement, HeroProps>(
           )}
         />
       </div>
-    );
+    )
   },
-);
+)
 
-Hero.displayName = "Hero";
+Hero.displayName = 'Hero'
 
-export { Hero };
+export { Hero }
